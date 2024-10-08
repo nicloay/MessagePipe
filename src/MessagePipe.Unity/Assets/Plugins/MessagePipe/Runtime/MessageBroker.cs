@@ -48,7 +48,7 @@ namespace MessagePipe
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Publish(TMessage message)
         {
-            var array = handlers.GetValues();
+            var array = handlers.GetValues().ToArray();
             for (int i = 0; i < array.Length; i++)
             {
                 array[i]?.Handle(message);
